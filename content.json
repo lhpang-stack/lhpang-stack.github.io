@@ -20,7 +20,7 @@
     "location": "中国 · 上海",
     "email": "pang_linhan@sjtu.edu.cn",
     "phone": "+86 15253538350",
-    "photo": "",
+    "photo": "assets/profile.jpg",
     "photoAlt": "逄林汉的个人照片"
   },
   "navigation": [
@@ -30,7 +30,7 @@
     { "label": "项目经历", "href": "#projects" }
   ],
   "links": [
-    { "label": "Email", "href": "$email" },
+    { "label": "Email", "href": "https://mail.sjtu.edu.cn/zimbra/mail#1" },
     { "label": "电话", "href": "$phone" },
     { "label": "GitHub", "href": "https://github.com/lhpang-stack" },
     { "label": "个人简历", "href": "" }
@@ -122,7 +122,7 @@
   ],
   "honors": [
     {
-      "date": "2026",
+      "date": "2026.05",
       "title": "全国大学生英语竞赛",
       "organization": "三等奖"
     }
