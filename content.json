@@ -15,7 +15,7 @@
   "profile": {
     "name": "逄林汉",
     "englishName": "Linhan Pang",
-    "role": "本科一年级",
+    "role": "本科二年级",
     "affiliation": "上海交通大学 · 计算机学院",
     "location": "中国 · 上海",
     "email": "pang_linhan@sjtu.edu.cn",
@@ -24,24 +24,24 @@
     "photoAlt": "逄林汉的个人照片"
   },
   "navigation": [
-    { "label": "个人介绍", "href": "#about" },
-    { "label": "教育背景", "href": "#education" },
-    { "label": "研究兴趣", "href": "#research" },
-    { "label": "项目经历", "href": "#projects" }
+    { "label": "About", "href": "#about" },
+    { "label": "Education", "href": "#education" },
+    { "label": "Research", "href": "#research" },
+    { "label": "Projects", "href": "#projects" }
   ],
   "links": [
     { "label": "Email", "href": "https://mail.sjtu.edu.cn/zimbra/mail#1" },
-    { "label": "电话", "href": "$phone" },
+    { "label": "Phone", "href": "$phone" },
     { "label": "GitHub", "href": "https://github.com/lhpang-stack" },
-    { "label": "个人简历", "href": "" }
+    { "label": "Resume", "href": "" }
   ],
   "sectionTitles": {
-    "news": "近期动态",
-    "education": "教育背景",
-    "research": "研究兴趣",
-    "projects": "项目经历",
-    "honors": "荣誉与奖项",
-    "skills": "技能"
+    "news": "News",
+    "education": "Education",
+    "research": "Research Interest",
+    "projects": "Projects",
+    "honors": "Honors",
+    "skills": "Skills"
   },
   "about": {
     "paragraphs": [
@@ -125,24 +125,29 @@
       "date": "2026.05",
       "title": "全国大学生英语竞赛",
       "organization": "三等奖"
+    },
+    {
+      "date": "2025.12",
+      "title": "上海市阳光联赛运动会",
+      "organization": "踢毽子团体一等奖"
     }
   ],
   "skillGroups": [
     {
-      "title": "专业与研究",
-      "items": ["专业能力一", "研究方法一", "数据分析"]
+      "title": "Fields",
+      "items": ["计算机科学", "人工智能", "大语言模型"]
     },
     {
-      "title": "编程与工具",
-      "items": ["Python", "工具二", "工具三"]
+      "title": "Programming",
+      "items": ["Python", "C++", "Linux"]
     },
     {
-      "title": "语言",
-      "items": ["中文 · 母语", "英语 · 请填写水平"]
+      "title": "Language",
+      "items": ["Chinese", "English"]
     }
   ],
   "footer": {
-    "note": "感谢访问我的个人主页。",
-    "copyright": "保留所有权利。"
+    "note": "Thanks for visiting my personal homepage.",
+    "copyright": "All rights reserved."
   }
 }
