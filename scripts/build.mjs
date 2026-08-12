@@ -15,9 +15,13 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-const safeHref = (value = "#") => {
+const safeHref = (value = "") => {
   const href = String(value).trim();
-  return /^(https?:\/\/|mailto:|tel:|#)/i.test(href) ? escapeHtml(href) : "#";
+  if (/^(https?:\/\/|mailto:|tel:|#)/i.test(href)) return escapeHtml(href);
+  if (/^(?:\.\/)?assets\/[a-zA-Z0-9][a-zA-Z0-9_./-]*$/i.test(href) && !href.includes("..")) {
+    return escapeHtml(href.startsWith("./") ? href : `./${href}`);
+  }
+  return "";
 };
 
 const safeAsset = (value = "") => {
@@ -27,162 +31,195 @@ const safeAsset = (value = "") => {
     : "";
 };
 
-const sectionHeading = (index, title) => `
-  <div class="section-heading">
-    <span>${escapeHtml(index)}</span>
-    <h2>${escapeHtml(title)}</h2>
-  </div>`;
+const safeColor = (value, fallback) =>
+  /^#[0-9a-f]{6}$/i.test(String(value || "")) ? String(value) : fallback;
 
-const timeline = (items = []) => `
-  <div class="timeline">
-    ${items
-      .map(
-        (item) => `
-      <article class="timeline-item">
-        <p class="timeline-period">${escapeHtml(item.period)}</p>
-        <div class="timeline-copy">
-          <h3>${escapeHtml(item.title)}</h3>
-          <p class="timeline-organization">${escapeHtml(item.organization)}</p>
-          <p class="timeline-description">${escapeHtml(item.description)}</p>
-          ${
-            item.highlights?.length
-              ? `<ul class="highlight-list">${item.highlights
-                  .map((highlight) => `<li>${escapeHtml(highlight)}</li>`)
-                  .join("")}</ul>`
-              : ""
-          }
-        </div>
-      </article>`
-      )
-      .join("")}
-  </div>`;
+const safeLength = (value, fallback) =>
+  /^\d{2,4}px$/i.test(String(value || "")) ? String(value) : fallback;
 
-const photoMarkup = data.profile.photo
-  ? `<img class="portrait" src="${safeAsset(data.profile.photo)}" alt="${escapeHtml(data.profile.photoAlt)}">`
-  : `<div class="portrait-placeholder" role="img" aria-label="尚未添加个人照片">
-      <strong>${escapeHtml(data.profile.englishName || data.profile.name)}</strong>
-      <span>将照片保存到 assets/profile.jpg<br>并在 content.json 填写路径</span>
+const externalAttributes = (href = "") =>
+  /^https?:\/\//i.test(String(href)) ? ' target="_blank" rel="noreferrer"' : "";
+
+const renderLinks = (links = [], className = "text-links") => {
+  const items = links
+    .map((link) => {
+      const resolvedHref = link.href === "$email"
+        ? `mailto:${data.profile?.email || ""}`
+        : link.href === "$phone"
+          ? `tel:${String(data.profile?.phone || "").replace(/\s/g, "")}`
+          : link.href;
+      return { ...link, resolvedHref, safe: safeHref(resolvedHref) };
+    })
+    .filter((link) => link.safe)
+    .map(
+      (link) =>
+        `<a href="${link.safe}"${externalAttributes(link.resolvedHref)}>${escapeHtml(link.label)}</a>`
+    )
+    .join("");
+  return items ? `<div class="${className}">${items}</div>` : "";
+};
+
+const section = (id, title, content, className = "") =>
+  content
+    ? `<section class="content-section ${className}" id="${id}">
+        <h2>${escapeHtml(title)}</h2>
+        ${content}
+      </section>`
+    : "";
+
+const profilePhoto = safeAsset(data.profile?.photo);
+const photoMarkup = profilePhoto
+  ? `<img class="profile-photo" src="./${profilePhoto}" alt="${escapeHtml(data.profile.photoAlt)}">`
+  : `<div class="photo-placeholder" role="img" aria-label="尚未添加个人照片">
+      <span>PHOTO</span>
+      <small>照片路径写在<br>content.json</small>
     </div>`;
 
-const nav = (data.navigation || [])
-  .map((item) => `<a href="${safeHref(item.href)}">${escapeHtml(item.label)}</a>`)
+const navigation = (data.navigation || [])
+  .map((item) => ({ ...item, safe: safeHref(item.href) }))
+  .filter((item) => item.safe)
+  .map((item) => `<a href="${item.safe}">${escapeHtml(item.label)}</a>`)
   .join("");
 
-const social = (data.socialLinks || [])
+const aboutContent = (data.about?.paragraphs || [])
+  .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+  .join("");
+
+const newsContent = (data.news || [])
+  .map((item) => {
+    const href = safeHref(item.href);
+    const copy = href
+      ? `<a href="${href}"${externalAttributes(item.href)}>${escapeHtml(item.text)}</a>`
+      : escapeHtml(item.text);
+    return `<li><time>${escapeHtml(item.date)}</time><span>${copy}</span></li>`;
+  })
+  .join("");
+
+const educationContent = (data.education || [])
   .map(
-    (link) =>
-      `<a href="${safeHref(link.href)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`
+    (item) => `<article class="entry">
+      <time>${escapeHtml(item.period)}</time>
+      <div>
+        <h3>${escapeHtml(item.degree)}</h3>
+        <p class="entry-meta">${escapeHtml(item.institution)}</p>
+        ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
+      </div>
+    </article>`
   )
   .join("");
 
+const researchContent = (data.researchInterests || [])
+  .map(
+    (item) => `<article class="interest-item">
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.description)}</p>
+    </article>`
+  )
+  .join("");
+
+const projectContent = (data.projects || [])
+  .map(
+    (item) => `<article class="project-item">
+      <div class="project-heading">
+        <div>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p class="entry-meta">${escapeHtml(item.role)}</p>
+        </div>
+        <time>${escapeHtml(item.period)}</time>
+      </div>
+      <p>${escapeHtml(item.description)}</p>
+      ${(item.tags || []).length ? `<ul class="tag-list">${item.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("")}</ul>` : ""}
+      ${renderLinks(item.links || [], "project-links")}
+    </article>`
+  )
+  .join("");
+
+const honorContent = (data.honors || [])
+  .map(
+    (item) => `<li>
+      <time>${escapeHtml(item.date)}</time>
+      <span><strong>${escapeHtml(item.title)}</strong>${item.organization ? ` · ${escapeHtml(item.organization)}` : ""}</span>
+    </li>`
+  )
+  .join("");
+
+const skillsContent = (data.skillGroups || [])
+  .map(
+    (group) => `<article>
+      <h3>${escapeHtml(group.title)}</h3>
+      <p>${(group.items || []).map(escapeHtml).join(" · ")}</p>
+    </article>`
+  )
+  .join("");
+
+const titleParts = [data.profile?.name, data.profile?.englishName].filter(Boolean);
+const pageTitle = titleParts.join(" · ");
+const sectionTitles = data.sectionTitles || {};
+
 const html = `<!doctype html>
-<html lang="${escapeHtml(data.site.language || "zh-CN")}">
+<html lang="${escapeHtml(data.site?.language || "zh-CN")}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="${escapeHtml(data.site.description)}">
-    <meta name="theme-color" content="${escapeHtml(data.site.accentColor || "#2e684b")}">
+    <meta name="description" content="${escapeHtml(data.site?.description)}">
+    <meta name="theme-color" content="${safeColor(data.theme?.accentColor, "#2f6288")}">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
-    <title>${escapeHtml(data.profile.name)}｜${escapeHtml(data.site.title)}</title>
+    <title>${escapeHtml(pageTitle)}｜${escapeHtml(data.site?.title)}</title>
+    <link rel="stylesheet" href="./theme.css">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <main>
-      <header class="site-header">
-        <a class="wordmark" href="#top" aria-label="返回页面顶部">${escapeHtml(data.profile.englishName)}</a>
-        <nav aria-label="主导航">${nav}</nav>
-        <a class="header-contact" href="mailto:${escapeHtml(data.profile.email)}">联系我 <span aria-hidden="true">↗</span></a>
-      </header>
-
-      <section class="hero" id="top">
-        <div class="portrait-wrap">
-          ${photoMarkup}
-          <div class="portrait-caption" aria-hidden="true">
-            <span>${escapeHtml(data.profile.portraitLabel)}</span>
-            <span>${escapeHtml(data.profile.portraitCoordinate)}</span>
-          </div>
-        </div>
-        <div class="hero-content">
-          <div class="availability"><span class="status-dot" aria-hidden="true"></span>${escapeHtml(data.profile.status)}</div>
-          <p class="hero-role">${escapeHtml(data.profile.role)}</p>
-          <h1>${escapeHtml(data.profile.name)}</h1>
-          <p class="hero-intro">${escapeHtml(data.profile.intro)}</p>
-          <div class="hero-meta">
-            <span>${escapeHtml(data.profile.location)}</span>
-            <a href="mailto:${escapeHtml(data.profile.email)}">${escapeHtml(data.profile.email)}</a>
-          </div>
-          <div class="facts" aria-label="个人概览">
-            ${(data.facts || [])
-              .map((fact) => `<div class="fact"><strong>${escapeHtml(fact.value)}</strong><span>${escapeHtml(fact.label)}</span></div>`)
-              .join("")}
-          </div>
-        </div>
-      </section>
-
-      <div class="content-shell">
-        <aside class="side-note" aria-label="个人简介导语">
-          <p>${escapeHtml(data.about.eyebrow)}</p>
-          <span>${escapeHtml(data.about.sideNote)}</span>
-        </aside>
-        <div class="main-column">
-          <section class="page-section about-section" id="about">
-            ${sectionHeading("01", "个人介绍")}
-            <h2 class="statement">${(data.about.titleLines || []).map((line) => `<span>${escapeHtml(line)}</span>`).join("")}</h2>
-            <div class="about-copy">${(data.about.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
-          </section>
-          <section class="page-section" id="experience">
-            ${sectionHeading("02", "工作经历")}
-            ${timeline(data.experience)}
-          </section>
-          <section class="page-section" id="education">
-            ${sectionHeading("03", "教育背景")}
-            ${timeline(data.education)}
-          </section>
-          <section class="page-section" id="skills">
-            ${sectionHeading("04", "专业能力")}
-            <div class="skills-grid">
-              ${(data.skillGroups || [])
-                .map(
-                  (group) => `<article class="skill-group"><h3>${escapeHtml(group.title)}</h3><ul>${(group.skills || [])
-                    .map((skill) => `<li>${escapeHtml(skill)}</li>`)
-                    .join("")}</ul></article>`
-                )
-                .join("")}
-            </div>
-          </section>
-          <section class="page-section projects-section" id="projects">
-            ${sectionHeading("05", "代表项目")}
-            <div class="projects-list">
-              ${(data.projects || [])
-                .map(
-                  (project) => `<article class="project"><span class="project-number">${escapeHtml(project.number)}</span><div><p class="project-type">${escapeHtml(project.type)}</p><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.summary)}</p></div><span class="project-arrow" aria-hidden="true">↗</span></article>`
-                )
-                .join("")}
-            </div>
-          </section>
-        </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="site-name" href="#top">${escapeHtml(data.profile?.englishName || data.profile?.name)}</a>
+        ${navigation ? `<nav aria-label="主导航">${navigation}</nav>` : ""}
       </div>
+    </header>
 
-      <footer class="site-footer" id="contact">
-        <p class="footer-kicker">${escapeHtml(data.footer.kicker)}</p>
-        <h2>${escapeHtml(data.footer.title)}</h2>
-        <p class="footer-note">${escapeHtml(data.footer.note)}</p>
-        <a class="email-link" href="mailto:${escapeHtml(data.profile.email)}">${escapeHtml(data.profile.email)} <span aria-hidden="true">↗</span></a>
-        <div class="footer-bottom">
-          <div class="social-links">${social}</div>
-          <div class="footer-legal">
-            <a href="tel:${escapeHtml(data.profile.phone.replace(/\s/g, ""))}">${escapeHtml(data.profile.phone)}</a>
-            <p>© ${new Date().getFullYear()} ${escapeHtml(data.profile.name)}。${escapeHtml(data.footer.copyright)}</p>
-          </div>
-        </div>
-      </footer>
+    <main class="page" id="top">
+      <aside class="profile-card" aria-label="个人资料">
+        ${photoMarkup}
+        <h1>${escapeHtml(data.profile?.name)}</h1>
+        ${data.profile?.englishName ? `<p class="english-name">${escapeHtml(data.profile.englishName)}</p>` : ""}
+        <p class="profile-role">${escapeHtml(data.profile?.role)}</p>
+        <p class="affiliation">${escapeHtml(data.profile?.affiliation)}</p>
+        ${data.profile?.location ? `<p class="location">${escapeHtml(data.profile.location)}</p>` : ""}
+        ${renderLinks(data.links || [], "profile-links")}
+      </aside>
+
+      <article class="main-content">
+        <section class="intro" id="about">${aboutContent}</section>
+        ${section("news", sectionTitles.news || "近期动态", newsContent ? `<ul class="news-list">${newsContent}</ul>` : "")}
+        ${section("education", sectionTitles.education || "教育背景", educationContent, "entries-section")}
+        ${section("research", sectionTitles.research || "研究兴趣", researchContent ? `<div class="interest-list">${researchContent}</div>` : "")}
+        ${section("projects", sectionTitles.projects || "项目经历", projectContent, "projects-section")}
+        ${section("honors", sectionTitles.honors || "荣誉与奖项", honorContent ? `<ul class="honor-list">${honorContent}</ul>` : "")}
+        ${section("skills", sectionTitles.skills || "技能", skillsContent ? `<div class="skills-list">${skillsContent}</div>` : "")}
+      </article>
     </main>
+
+    <footer class="site-footer">
+      <div>
+        <p>${escapeHtml(data.footer?.note)}</p>
+        <p>© ${new Date().getFullYear()} ${escapeHtml(data.profile?.name)}。${escapeHtml(data.footer?.copyright)}</p>
+      </div>
+    </footer>
   </body>
 </html>`;
+
+const themeCss = `:root {
+  --accent: ${safeColor(data.theme?.accentColor, "#2f6288")};
+  --text: ${safeColor(data.theme?.textColor, "#4b5055")};
+  --muted: ${safeColor(data.theme?.mutedColor, "#73787d")};
+  --line: ${safeColor(data.theme?.lineColor, "#e6e8ea")};
+  --content-width: ${safeLength(data.theme?.contentWidth, "1180px")};
+  --sidebar-width: ${safeLength(data.theme?.sidebarWidth, "210px")};
+}`;
 
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 await writeFile(resolve(out, "index.html"), html, "utf8");
+await writeFile(resolve(out, "theme.css"), themeCss, "utf8");
 await cp(resolve(root, "src/styles.css"), resolve(out, "styles.css"));
 await writeFile(resolve(out, ".nojekyll"), "", "utf8");
 
