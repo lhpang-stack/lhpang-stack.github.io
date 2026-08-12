@@ -1,121 +1,128 @@
 {
   "site": {
-    "title": "个人主页",
-    "description": "个人简历、工作经历与代表项目",
-    "language": "zh-CN",
-    "accentColor": "#2e684b"
+    "title": "个人学术主页",
+    "description": "逄林汉的个人主页：个人介绍、教育背景、研究兴趣、项目经历与联系方式",
+    "language": "zh-CN"
+  },
+  "theme": {
+    "accentColor": "#2f6288",
+    "textColor": "#4b5055",
+    "mutedColor": "#73787d",
+    "lineColor": "#e6e8ea",
+    "contentWidth": "1180px",
+    "sidebarWidth": "210px"
   },
   "profile": {
     "name": "逄林汉",
     "englishName": "Linhan Pang",
-    "role": "你的职业 · 专业方向",
+    "role": "本科生 / 硕士研究生 / 博士研究生",
+    "affiliation": "学校名称 · 学院名称",
     "location": "中国 · 上海",
-    "status": "开放新的合作机会",
     "email": "pang_linhan@sjtu.edu.cn",
     "phone": "+86 15253538350",
-    "intro": "用一两句话说明你是谁、你擅长什么，以及你希望创造怎样的价值。",
     "photo": "",
-    "photoAlt": "个人照片",
-    "portraitLabel": "PROFILE / 2026",
-    "portraitCoordinate": "YOUR CITY"
+    "photoAlt": "逄林汉的个人照片"
   },
   "navigation": [
-    { "label": "关于", "href": "#about" },
-    { "label": "经历", "href": "#experience" },
-    { "label": "教育", "href": "#education" },
-    { "label": "能力", "href": "#skills" }
+    { "label": "个人介绍", "href": "#about" },
+    { "label": "教育背景", "href": "#education" },
+    { "label": "研究兴趣", "href": "#research" },
+    { "label": "项目经历", "href": "#projects" }
   ],
-  "socialLinks": [
-    { "label": "LinkedIn", "href": "https://www.linkedin.com/" },
-    { "label": "GitHub", "href": "https://github.com/" },
-    { "label": "作品集", "href": "https://example.com/" }
+  "links": [
+    { "label": "Email", "href": "$email" },
+    { "label": "电话", "href": "$phone" },
+    { "label": "GitHub", "href": "https://github.com/lhpang-stack" },
+    { "label": "个人简历", "href": "" }
   ],
-  "facts": [
-    { "value": "06", "label": "年行业经验" },
-    { "value": "24+", "label": "个交付项目" },
-    { "value": "08", "label": "个合作团队" }
-  ],
+  "sectionTitles": {
+    "news": "近期动态",
+    "education": "教育背景",
+    "research": "研究兴趣",
+    "projects": "项目经历",
+    "honors": "荣誉与奖项",
+    "skills": "技能"
+  },
   "about": {
-    "eyebrow": "ABOUT ME",
-    "sideNote": "保持好奇，认真观察，清楚表达。",
-    "titleLines": ["在理性与感性之间，", "做真正有用的工作。"],
     "paragraphs": [
-      "在这里写一段较完整的个人介绍。可以说明你的从业年限、关注领域、擅长解决的问题，以及你通常如何开展工作。",
-      "第二段可以写你的职业观、个人特点和工作之外的兴趣，让读者对你形成更立体的认识。"
+      "在这里写一段简洁的个人介绍：你目前就读于哪所学校、学习什么专业，以及你正在关注的方向。建议控制在三到五句话以内。",
+      "第二段可以补充你的学习目标、研究兴趣、正在寻找的机会，或任何希望访问者首先了解的信息。"
     ]
   },
-  "experience": [
+  "news": [
     {
-      "period": "2023 — 至今",
-      "title": "你的当前职位",
-      "organization": "公司名称 · 城市",
-      "description": "说明你的主要职责、业务范围和与团队协作的方式。",
-      "highlights": ["写一项可以量化的成果", "写一项有代表性的贡献"]
-    },
-    {
-      "period": "2020 — 2023",
-      "title": "你的上一份职位",
-      "organization": "公司名称 · 城市",
-      "description": "说明你在这段经历中负责的工作、积累的能力和创造的价值。",
-      "highlights": ["代表成果一", "代表成果二"]
+      "date": "2026.08",
+      "text": "在这里记录一条近期的学习进展、项目更新、获奖或活动经历。",
+      "href": ""
     }
   ],
   "education": [
     {
-      "period": "2015 — 2018",
-      "title": "专业名称 · 学位",
-      "organization": "学校名称",
-      "description": "研究方向、主修内容或值得说明的校园经历。"
+      "period": "2022 — 至今",
+      "degree": "你的专业 · 你的学位",
+      "institution": "学校名称",
+      "description": "可填写研究方向、主修课程、导师或值得说明的校园经历。"
     },
     {
-      "period": "2011 — 2015",
-      "title": "专业名称 · 学位",
-      "organization": "学校名称",
-      "description": "主修内容或值得说明的校园经历。"
+      "period": "2019 — 2022",
+      "degree": "上一阶段的专业或学历",
+      "institution": "学校名称",
+      "description": "不需要这一项时，直接删除这一整个对象。"
     }
   ],
-  "skillGroups": [
+  "researchInterests": [
     {
-      "title": "专业能力",
-      "skills": ["能力一", "能力二", "能力三", "能力四", "能力五"]
+      "title": "研究方向一",
+      "description": "用一两句话说明你对这个方向具体关注什么，以及你希望解决的问题。"
     },
     {
-      "title": "工具与方法",
-      "skills": ["工具一", "工具二", "工具三", "方法一", "方法二"]
-    },
-    {
-      "title": "行业知识",
-      "skills": ["领域一", "领域二", "领域三", "领域四"]
-    },
-    {
-      "title": "工作方式",
-      "skills": ["跨团队协作", "项目推动", "公开表达", "英文沟通"]
+      "title": "研究方向二",
+      "description": "这里也可以填写课程兴趣、希望探索的技术方向或跨学科主题。"
     }
   ],
   "projects": [
     {
-      "number": "01",
-      "title": "代表项目名称",
-      "type": "职责一 · 职责二 · 职责三",
-      "summary": "用一句话说明这个项目解决了什么问题，以及你在其中发挥了什么作用。"
+      "period": "2026",
+      "title": "项目名称",
+      "role": "课程项目 / 科研训练 / 个人项目",
+      "description": "说明项目解决了什么问题、你具体负责什么，以及得到了怎样的结果。",
+      "tags": ["关键词一", "关键词二"],
+      "links": [
+        { "label": "项目代码", "href": "" }
+      ]
     },
     {
-      "number": "02",
-      "title": "代表项目名称",
-      "type": "职责一 · 职责二 · 职责三",
-      "summary": "用一句话说明项目背景、结果或价值。"
+      "period": "2025",
+      "title": "项目名称",
+      "role": "你的角色",
+      "description": "没有这一项时可以删除；需要更多项目时，复制这一整个对象并修改内容。",
+      "tags": ["关键词一", "关键词二"],
+      "links": []
+    }
+  ],
+  "honors": [
+    {
+      "date": "2026",
+      "title": "奖项、奖学金或竞赛名称",
+      "organization": "颁发机构"
+    }
+  ],
+  "skillGroups": [
+    {
+      "title": "专业与研究",
+      "items": ["专业能力一", "研究方法一", "数据分析"]
     },
     {
-      "number": "03",
-      "title": "代表项目名称",
-      "type": "职责一 · 职责二 · 职责三",
-      "summary": "用一句话说明项目背景、结果或价值。"
+      "title": "编程与工具",
+      "items": ["Python", "工具二", "工具三"]
+    },
+    {
+      "title": "语言",
+      "items": ["中文 · 母语", "英语 · 请填写水平"]
     }
   ],
   "footer": {
-    "kicker": "GET IN TOUCH",
-    "title": "一起做点有价值的事。",
-    "note": "无论是一个新想法、一份工作机会，还是单纯想交流，都欢迎来信。",
+    "note": "感谢访问我的个人主页。",
     "copyright": "保留所有权利。"
   }
 }
