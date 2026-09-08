@@ -85,14 +85,8 @@ const aboutContent = (data.about?.paragraphs || [])
   .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
   .join("");
 
-const newsContent = (data.news || [])
-  .map((item) => {
-    const href = safeHref(item.href);
-    const copy = href
-      ? `<a href="${href}"${externalAttributes(item.href)}>${escapeHtml(item.text)}</a>`
-      : escapeHtml(item.text);
-    return `<li><time>${escapeHtml(item.date)}</time><span>${copy}</span></li>`;
-  })
+const academicContent = (data.academicPerformance || [])
+  .map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.value)}</p></article>`)
   .join("");
 
 const educationContent = (data.education || [])
@@ -188,11 +182,10 @@ const html = `<!doctype html>
       </aside>
 
       <article class="main-content">
-        <section class="intro" id="about">${aboutContent}</section>
-        ${section("news", sectionTitles.news || "近期动态", newsContent ? `<ul class="news-list">${newsContent}</ul>` : "")}
+        ${section("about", sectionTitles.about || "About Me", aboutContent, "about-section")}
         ${section("education", sectionTitles.education || "教育背景", educationContent, "entries-section")}
-        ${section("research", sectionTitles.research || "研究兴趣", researchContent ? `<div class="interest-list">${researchContent}</div>` : "")}
-        ${section("projects", sectionTitles.projects || "项目经历", projectContent, "projects-section")}
+        ${section("academics", sectionTitles.academics || "Academic Performance", academicContent ? `<div class="skills-list">${academicContent}</div>` : "")}
+        ${section("research", sectionTitles.research || "Research Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
         ${section("honors", sectionTitles.honors || "荣誉与奖项", honorContent ? `<ul class="honor-list">${honorContent}</ul>` : "")}
         ${section("skills", sectionTitles.skills || "技能", skillsContent ? `<div class="skills-list">${skillsContent}</div>` : "")}
       </article>

@@ -176,6 +176,9 @@ nav a:hover { color: var(--accent); }
 
 .content-section { margin-top: 48px; }
 
+.about-section { margin-top: 0; }
+.research-subheading { margin: 28px 0 18px; font-size: 20px; }
+
 .content-section > h2 {
   border-bottom: 1px solid var(--line);
   color: var(--text);

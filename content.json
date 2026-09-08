@@ -33,12 +33,20 @@
       "href": "#education"
     },
     {
+      "label": "Academics",
+      "href": "#academics"
+    },
+    {
       "label": "Research",
       "href": "#research"
     },
     {
-      "label": "Projects",
-      "href": "#projects"
+      "label": "Honors",
+      "href": "#honors"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
     }
   ],
   "links": [
@@ -60,72 +68,35 @@
     }
   ],
   "sectionTitles": {
-    "news": "News",
+    "about": "About Me",
     "education": "Education",
-    "research": "Research Interests",
-    "projects": "Projects",
-    "honors": "Honors",
+    "academics": "Academic Performance",
+    "research": "Research Experience",
+    "honors": "Honors and Awards",
     "skills": "Skills"
   },
   "about": {
     "paragraphs": [
-      "I am a second-year undergraduate studying Computer Science and Technology at Shanghai Jiao Tong University, which I joined in 2025. My interests include artificial intelligence, large language models, and the development of algorithms and software systems.",
-      "My research training includes data collection, quality control and experimental framework design for AmbiHTMLBench, as well as work on an autonomous-driving and automation project. I also served as a teaching assistant for a Python fundamentals course."
+      "I am a second-year undergraduate in Computer Science and Technology at the School of Computer Science, Shanghai Jiao Tong University. I joined the university in 2025 and am based in Shanghai, China.",
+      "My research interests are machine learning and deep learning, and reinforcement learning. Alongside my studies and research training, I served as a teaching assistant for Python Fundamentals at the 2026 Zhuli Camp and as a student assistant in the Operations Management Office of Academic Affairs."
     ]
   },
-  "news": [
-    {
-      "date": "Sep 2026",
-      "text": "AmbiHTMLBench is being prepared for submission to ICLR 2027, with submission planned for September 25, 2026.",
-      "href": ""
-    },
-    {
-      "date": "Aug 2026",
-      "text": "Served as a teaching assistant for Python Fundamentals at the 2026 Zhuli Camp.",
-      "href": ""
-    },
-    {
-      "date": "Jul 2026",
-      "text": "Served as a student assistant in the Operations Management Office of Academic Affairs.",
-      "href": ""
-    },
-    {
-      "date": "Spring 2026",
-      "text": "Core-course academic score: 90.60; rank in major: 13/97.",
-      "href": ""
-    }
-  ],
   "education": [
     {
       "period": "2025 - Present",
       "degree": "Undergraduate in Computer Science and Technology",
       "institution": "Shanghai Jiao Tong University",
-      "description": "School of Computer Science. Core-course academic score: 90.60; rank in major: 13/97 (Spring 2026)."
-    },
-    {
-      "period": "2022 - 2025",
-      "degree": "Senior High School",
-      "institution": "Shandong Yantai No. 1 High School"
-    },
-    {
-      "period": "2018 - 2022",
-      "degree": "Junior High School",
-      "institution": "Yantai Zhifu Middle School"
-    },
-    {
-      "period": "2013 - 2018",
-      "degree": "Primary School",
-      "institution": "Nantong Road Primary School, Zhifu District, Yantai"
+      "description": "School of Computer Science; second-year undergraduate."
     }
   ],
   "researchInterests": [
     {
-      "title": "Large Language Models and Machine Learning",
-      "description": "I am interested in how data quality and experimental design influence the evaluation of large language models. My work on AmbiHTMLBench involves collecting and organizing data, checking its quality, and contributing to experimental code."
+      "title": "Machine Learning and Deep Learning",
+      "description": "I am interested in how models learn useful representations from data and generalize to new tasks. I hope to explore neural network architectures, optimization, and reliable evaluation, with particular attention to data quality and reproducible experiments."
     },
     {
-      "title": "Algorithms and Autonomous Systems",
-      "description": "I am interested in connecting algorithm development with working software systems. My summer research training involved algorithm design, deployment, simulation testing and technical reporting in autonomous driving and automation."
+      "title": "Reinforcement Learning",
+      "description": "I am interested in how agents learn to make sequential decisions through interaction and feedback. I hope to explore policy learning, exploration, and sample efficiency, as well as applications to autonomous systems and decision-making under uncertainty."
     }
   ],
   "projects": [
@@ -183,23 +154,25 @@
       ]
     },
     {
-      "title": "Areas of Interest",
-      "items": [
-        "Computer Science",
-        "Artificial Intelligence",
-        "Large Language Models"
-      ]
-    },
-    {
       "title": "Languages",
       "items": [
         "Chinese",
-        "English"
+        "English: CET-6 score 647"
       ]
     }
   ],
   "footer": {
     "note": "Thanks for visiting my personal homepage.",
     "copyright": "All rights reserved."
-  }
+  },
+  "academicPerformance": [
+    {
+      "title": "Core-course Academic Score",
+      "value": "88.96 / 100"
+    },
+    {
+      "title": "GPA",
+      "value": "3.80 / 4.30"
+    }
+  ]
 }
