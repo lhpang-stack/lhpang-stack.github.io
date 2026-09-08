@@ -53,7 +53,7 @@ const renderLinks = (links = [], className = "text-links") => {
     .filter((link) => link.safe)
     .map(
       (link) =>
-        `<a href="${link.safe}"${externalAttributes(link.resolvedHref)}>${escapeHtml(link.label)}</a>`
+        `<a href="${link.safe}"${externalAttributes(link.resolvedHref)}>${escapeHtml(link.label === "$email" ? data.profile?.email : link.label)}</a>`
     )
     .join("");
   return items ? `<div class="${className}">${items}</div>` : "";
@@ -137,11 +137,21 @@ const honorContent = (data.honors || [])
   )
   .join("");
 
+const studentWorkContent = (data.studentWork || [])
+  .map((item) => `<article class="entry">
+    <time>${escapeHtml(item.period)}</time>
+    <div><h3>${escapeHtml(item.title)}</h3>
+      <p class="entry-meta">${escapeHtml(item.organization)}</p>
+      <p>${escapeHtml(item.description)}</p>
+    </div>
+  </article>`)
+  .join("");
+
 const skillsContent = (data.skillGroups || [])
   .map(
     (group) => `<article>
       <h3>${escapeHtml(group.title)}</h3>
-      <p>${(group.items || []).map(escapeHtml).join(" · ")}</p>
+      <ul class="skill-points">${(group.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
     </article>`
   )
   .join("");
@@ -186,6 +196,7 @@ const html = `<!doctype html>
         ${section("education", sectionTitles.education || "教育背景", educationContent, "entries-section")}
         ${section("academics", sectionTitles.academics || "Academic Performance", academicContent ? `<div class="skills-list">${academicContent}</div>` : "")}
         ${section("research", sectionTitles.research || "Research Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
+        ${section("student-work", sectionTitles.studentWork || "Student Work and Campus Roles", studentWorkContent, "entries-section")}
         ${section("honors", sectionTitles.honors || "荣誉与奖项", honorContent ? `<ul class="honor-list">${honorContent}</ul>` : "")}
         ${section("skills", sectionTitles.skills || "技能", skillsContent ? `<div class="skills-list">${skillsContent}</div>` : "")}
       </article>

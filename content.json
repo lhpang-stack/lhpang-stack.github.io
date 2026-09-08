@@ -41,6 +41,10 @@
       "href": "#research"
     },
     {
+      "label": "Campus Roles",
+      "href": "#student-work"
+    },
+    {
       "label": "Honors",
       "href": "#honors"
     },
@@ -51,7 +55,7 @@
   ],
   "links": [
     {
-      "label": "Email",
+      "label": "$email",
       "href": "$email"
     },
     {
@@ -72,13 +76,14 @@
     "education": "Education",
     "academics": "Academic Performance",
     "research": "Research Experience",
+    "studentWork": "Student Work and Campus Roles",
     "honors": "Honors and Awards",
     "skills": "Skills"
   },
   "about": {
     "paragraphs": [
       "I am a second-year undergraduate in Computer Science and Technology at the School of Computer Science, Shanghai Jiao Tong University. I joined the university in 2025 and am based in Shanghai, China.",
-      "My research interests are machine learning and deep learning, and reinforcement learning. Alongside my studies and research training, I served as a teaching assistant for Python Fundamentals at the 2026 Zhuli Camp and as a student assistant in the Operations Management Office of Academic Affairs."
+      "My research interests are machine learning and deep learning, and reinforcement learning."
     ]
   },
   "education": [
@@ -127,6 +132,20 @@
       "links": []
     }
   ],
+  "studentWork": [
+    {
+      "period": "Aug 2026",
+      "title": "Teaching Assistant",
+      "organization": "2026 Zhuli Camp",
+      "description": "Served as a teaching assistant for the Python Fundamentals course."
+    },
+    {
+      "period": "Jul 2026",
+      "title": "Student Administrative Assistant",
+      "organization": "Academic Affairs, Shanghai Jiao Tong University",
+      "description": "Served as a student assistant in the Operations Management Office of Academic Affairs."
+    }
+  ],
   "honors": [
     {
       "date": "May 2026",
@@ -135,29 +154,22 @@
     },
     {
       "date": "Dec 2025",
-      "title": "First Prize, Team Shuttlecock Competition",
-      "organization": "Shanghai Sunshine League Sports Meet"
+      "title": "Team First Prize, Sunshine League",
+      "organization": ""
     }
   ],
   "skillGroups": [
     {
-      "title": "Programming",
+      "title": "Technical Skills",
       "items": [
-        "Python",
-        "C++"
+        "Familiar with Python and C++, with practical programming experience.",
+        "Familiar with programming in Linux environments, with project development experience."
       ]
     },
     {
-      "title": "Tools and Environment",
+      "title": "Language Skills",
       "items": [
-        "Linux"
-      ]
-    },
-    {
-      "title": "Languages",
-      "items": [
-        "Chinese",
-        "English: CET-6 score 647"
+        "English: College English Test Band 6 (CET-6), score 647."
       ]
     }
   ],
