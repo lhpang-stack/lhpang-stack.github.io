@@ -106,7 +106,7 @@ const researchContent = (data.researchInterests || [])
   .map(
     (item) => `<article class="interest-item">
       <h3>${escapeHtml(item.title)}</h3>
-      <p>${escapeHtml(item.description)}</p>
+      ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
     </article>`
   )
   .join("");
@@ -142,7 +142,7 @@ const studentWorkContent = (data.studentWork || [])
     <time>${escapeHtml(item.period)}</time>
     <div><h3>${escapeHtml(item.title)}</h3>
       <p class="entry-meta">${escapeHtml(item.organization)}</p>
-      <p>${escapeHtml(item.description)}</p>
+      ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
     </div>
   </article>`)
   .join("");
@@ -204,7 +204,7 @@ const html = `<!doctype html>
 
     <footer class="site-footer">
       <div>
-        <p>${escapeHtml(data.footer?.note)}</p>
+        ${data.footer?.note ? `<p>${escapeHtml(data.footer.note)}</p>` : ""}
         <p>© ${new Date().getFullYear()} ${escapeHtml(data.profile?.name)}. ${escapeHtml(data.footer?.copyright)}</p>
       </div>
     </footer>

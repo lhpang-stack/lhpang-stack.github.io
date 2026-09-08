@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Academic Homepage",
-    "description": "Linhan Pang, Computer Science undergraduate at Shanghai Jiao Tong University. Research, projects, education and contact information.",
+    "description": "Linhan Pang is a computer science undergraduate at Shanghai Jiao Tong University with interests in machine learning, deep learning, and reinforcement learning.",
     "language": "en"
   },
   "theme": {
@@ -41,7 +41,7 @@
       "href": "#research"
     },
     {
-      "label": "Campus Roles",
+      "label": "Service",
       "href": "#student-work"
     },
     {
@@ -76,53 +76,53 @@
     "education": "Education",
     "academics": "Academic Performance",
     "research": "Research Experience",
-    "studentWork": "Student Work and Campus Roles",
+    "studentWork": "Teaching and University Service",
     "honors": "Honors and Awards",
     "skills": "Skills"
   },
   "about": {
     "paragraphs": [
-      "I am a second-year undergraduate in Computer Science and Technology at the School of Computer Science, Shanghai Jiao Tong University. I joined the university in 2025 and am based in Shanghai, China.",
-      "My research interests are machine learning and deep learning, and reinforcement learning."
+      "I am a second-year undergraduate studying Computer Science and Technology at Shanghai Jiao Tong University. My interests lie in machine learning, particularly deep learning and reinforcement learning.",
+      "I currently contribute to AmbiHTMLBench, working on data collection, quality control, and experimental software."
     ]
   },
   "education": [
     {
       "period": "2025 - Present",
-      "degree": "Undergraduate in Computer Science and Technology",
+      "degree": "Computer Science and Technology",
       "institution": "Shanghai Jiao Tong University",
-      "description": "School of Computer Science; second-year undergraduate."
+      "description": "Undergraduate studies, School of Computer Science."
     }
   ],
   "researchInterests": [
     {
       "title": "Machine Learning and Deep Learning",
-      "description": "I am interested in how models learn useful representations from data and generalize to new tasks. I hope to explore neural network architectures, optimization, and reliable evaluation, with particular attention to data quality and reproducible experiments."
+      "description": "I am interested in representation learning and how neural networks generalize to new tasks. Topics I would like to explore include model architectures, optimization, and evaluation, with an emphasis on data quality and reproducibility."
     },
     {
       "title": "Reinforcement Learning",
-      "description": "I am interested in how agents learn to make sequential decisions through interaction and feedback. I hope to explore policy learning, exploration, and sample efficiency, as well as applications to autonomous systems and decision-making under uncertainty."
+      "description": "I am interested in how agents learn to make decisions through interaction with their environment. I would like to explore exploration strategies, policy learning, and sample efficiency, particularly in autonomous systems and decision-making under uncertainty."
     }
   ],
   "projects": [
     {
       "period": "Aug 2026 - Present",
       "title": "AmbiHTMLBench",
-      "role": "Research Training",
-      "description": "Collect, quality-check and organize data, and contribute to the design of parts of the experimental code framework. The project concerns large language models and machine learning. A submission to ICLR 2027 is planned for September 25, 2026.",
+      "role": "Undergraduate Research Project",
+      "description": "I collect and organize data, perform quality checks, and contribute to the experimental software framework for this large language model research project. The team plans to submit the work to ICLR 2027 on September 25, 2026.",
       "tags": [
         "Large Language Models",
         "Machine Learning",
         "Data Quality",
-        "Experimental Frameworks"
+        "Research Software"
       ],
       "links": []
     },
     {
       "period": "Jul 2026",
       "title": "Summer Research Placement",
-      "role": "Research Training in Autonomous Driving and Automation",
-      "description": "Worked on algorithm design and development, system deployment, simulation testing and technical report writing. This placement connected algorithm implementation with system-level experimentation.",
+      "role": "Autonomous Driving and Automation",
+      "description": "I worked on algorithm design and implementation, system deployment, and simulation testing, and prepared technical reports on the project.",
       "tags": [
         "Autonomous Driving",
         "Automation",
@@ -135,15 +135,15 @@
   "studentWork": [
     {
       "period": "Aug 2026",
-      "title": "Teaching Assistant",
+      "title": "Teaching Assistant, Python Fundamentals",
       "organization": "2026 Zhuli Camp",
-      "description": "Served as a teaching assistant for the Python Fundamentals course."
+      "description": ""
     },
     {
       "period": "Jul 2026",
-      "title": "Student Administrative Assistant",
-      "organization": "Academic Affairs, Shanghai Jiao Tong University",
-      "description": "Served as a student assistant in the Operations Management Office of Academic Affairs."
+      "title": "Student Assistant",
+      "organization": "Operations Management Office, Academic Affairs",
+      "description": "Shanghai Jiao Tong University"
     }
   ],
   "honors": [
@@ -154,7 +154,7 @@
     },
     {
       "date": "Dec 2025",
-      "title": "Team First Prize, Sunshine League",
+      "title": "First Prize (Team), Sunshine League",
       "organization": ""
     }
   ],
@@ -162,24 +162,24 @@
     {
       "title": "Technical Skills",
       "items": [
-        "Familiar with Python and C++, with practical programming experience.",
-        "Familiar with programming in Linux environments, with project development experience."
+        "Python and C++: hands-on programming experience.",
+        "Linux: experience developing software projects in a Linux environment."
       ]
     },
     {
       "title": "Language Skills",
       "items": [
-        "English: College English Test Band 6 (CET-6), score 647."
+        "English: 647 on the College English Test, Band 6 (CET-6)."
       ]
     }
   ],
   "footer": {
-    "note": "Thanks for visiting my personal homepage.",
+    "note": "",
     "copyright": "All rights reserved."
   },
   "academicPerformance": [
     {
-      "title": "Core-course Academic Score",
+      "title": "Core Course Average",
       "value": "88.96 / 100"
     },
     {
