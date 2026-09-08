@@ -118,6 +118,7 @@ const projectContent = (data.projects || [])
         <div>
           <h3>${escapeHtml(item.title)}</h3>
           <p class="entry-meta">${escapeHtml(item.role)}</p>
+          ${item.supervisor ? `<p class="entry-meta">Supervisor: ${escapeHtml(item.supervisor)}</p>` : ""}
         </div>
         <time>${escapeHtml(item.period)}</time>
       </div>
