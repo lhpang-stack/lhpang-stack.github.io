@@ -164,7 +164,7 @@ const html = `<!doctype html>
     <meta name="description" content="${escapeHtml(data.site?.description)}">
     <meta name="theme-color" content="${safeColor(data.theme?.accentColor, "#2f6288")}">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
-    <title>${escapeHtml(pageTitle)}｜${escapeHtml(data.site?.title)}</title>
+    <title>${escapeHtml(pageTitle)} | ${escapeHtml(data.site?.title)}</title>
     <link rel="stylesheet" href="./theme.css">
     <link rel="stylesheet" href="./styles.css">
   </head>
@@ -172,12 +172,12 @@ const html = `<!doctype html>
     <header class="site-header">
       <div class="header-inner">
         <a class="site-name" href="#top">${escapeHtml(data.profile?.englishName || data.profile?.name)}</a>
-        ${navigation ? `<nav aria-label="主导航">${navigation}</nav>` : ""}
+        ${navigation ? `<nav aria-label="Main navigation">${navigation}</nav>` : ""}
       </div>
     </header>
 
     <main class="page" id="top">
-      <aside class="profile-card" aria-label="个人资料">
+      <aside class="profile-card" aria-label="Profile">
         ${photoMarkup}
         <h1>${escapeHtml(data.profile?.name)}</h1>
         ${data.profile?.englishName ? `<p class="english-name">${escapeHtml(data.profile.englishName)}</p>` : ""}
@@ -201,7 +201,7 @@ const html = `<!doctype html>
     <footer class="site-footer">
       <div>
         <p>${escapeHtml(data.footer?.note)}</p>
-        <p>© ${new Date().getFullYear()} ${escapeHtml(data.profile?.name)}。${escapeHtml(data.footer?.copyright)}</p>
+        <p>© ${new Date().getFullYear()} ${escapeHtml(data.profile?.name)}. ${escapeHtml(data.footer?.copyright)}</p>
       </div>
     </footer>
   </body>

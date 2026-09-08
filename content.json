@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "个人学术主页",
-    "description": "逄林汉的个人主页：个人介绍、教育背景、研究兴趣、项目经历与联系方式",
-    "language": "zh-CN"
+    "title": "Academic Homepage",
+    "description": "Linhan Pang, Computer Science undergraduate at Shanghai Jiao Tong University. Research, projects, education and contact information.",
+    "language": "en"
   },
   "theme": {
     "accentColor": "#2f6288",
@@ -13,137 +13,189 @@
     "sidebarWidth": "210px"
   },
   "profile": {
-    "name": "逄林汉",
-    "englishName": "Linhan Pang",
-    "role": "本科二年级",
-    "affiliation": "上海交通大学 · 计算机学院",
-    "location": "中国 · 上海",
+    "name": "Linhan Pang",
+    "englishName": "",
+    "role": "Second-year undergraduate",
+    "affiliation": "School of Computer Science, Shanghai Jiao Tong University",
+    "location": "Shanghai, China",
     "email": "pang_linhan@sjtu.edu.cn",
     "phone": "+86 15253538350",
     "photo": "assets/profile.jpg",
-    "photoAlt": "逄林汉的个人照片"
+    "photoAlt": "Portrait of Linhan Pang"
   },
   "navigation": [
-    { "label": "About", "href": "#about" },
-    { "label": "Education", "href": "#education" },
-    { "label": "Research", "href": "#research" },
-    { "label": "Projects", "href": "#projects" }
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Education",
+      "href": "#education"
+    },
+    {
+      "label": "Research",
+      "href": "#research"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    }
   ],
   "links": [
-    { "label": "Email", "href": "https://mail.sjtu.edu.cn/zimbra/mail#1" },
-    { "label": "Phone", "href": "$phone" },
-    { "label": "GitHub", "href": "https://github.com/lhpang-stack" },
-    { "label": "Resume", "href": "" }
+    {
+      "label": "Email",
+      "href": "$email"
+    },
+    {
+      "label": "Phone",
+      "href": "$phone"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/lhpang-stack"
+    },
+    {
+      "label": "Resume (PDF)",
+      "href": "assets/Linhan_Pang_CV.pdf"
+    }
   ],
   "sectionTitles": {
     "news": "News",
     "education": "Education",
-    "research": "Research Interest",
+    "research": "Research Interests",
     "projects": "Projects",
     "honors": "Honors",
     "skills": "Skills"
   },
   "about": {
     "paragraphs": [
-      "我是上海交通大学计算机学院的2025级本科生，目前就读于计算机科学与技术专业。"
+      "I am a second-year undergraduate studying Computer Science and Technology at Shanghai Jiao Tong University, which I joined in 2025. My interests include artificial intelligence, large language models, and the development of algorithms and software systems.",
+      "My research training includes data collection, quality control and experimental framework design for AmbiHTMLBench, as well as work on an autonomous-driving and automation project. I also served as a teaching assistant for a Python fundamentals course."
     ]
   },
   "news": [
     {
-      "date": "2026.08",
-      "text": "担任2026年筑力营《Python基础》课程助教",
+      "date": "Sep 2026",
+      "text": "AmbiHTMLBench is being prepared for submission to ICLR 2027, with submission planned for September 25, 2026.",
       "href": ""
     },
     {
-      "date": "2026.07",
-      "text": "担任教务处运行管理办公室助管",
+      "date": "Aug 2026",
+      "text": "Served as a teaching assistant for Python Fundamentals at the 2026 Zhuli Camp.",
       "href": ""
     },
     {
-      "date": "2026 Spring",
-      "text": "核心学积分90.60，专业排名13/97",
+      "date": "Jul 2026",
+      "text": "Served as a student assistant in the Operations Management Office of Academic Affairs.",
+      "href": ""
+    },
+    {
+      "date": "Spring 2026",
+      "text": "Core-course academic score: 90.60; rank in major: 13/97.",
       "href": ""
     }
   ],
   "education": [
     {
-      "period": "2025 — 至今",
-      "degree": "本科",
-      "institution": "上海交通大学 计算机科学与技术",
-      "description": "可填写研究方向、主修课程、导师或值得说明的校园经历。"
+      "period": "2025 - Present",
+      "degree": "Undergraduate in Computer Science and Technology",
+      "institution": "Shanghai Jiao Tong University",
+      "description": "School of Computer Science. Core-course academic score: 90.60; rank in major: 13/97 (Spring 2026)."
     },
     {
-      "period": "2022 — 2025",
-      "degree": "高中",
-      "institution": "山东省烟台第一中学"
+      "period": "2022 - 2025",
+      "degree": "Senior High School",
+      "institution": "Shandong Yantai No. 1 High School"
     },
     {
-      "period": "2018 — 2022",
-      "degree": "初中",
-      "institution": "烟台芝罘中学"
+      "period": "2018 - 2022",
+      "degree": "Junior High School",
+      "institution": "Yantai Zhifu Middle School"
     },
     {
-      "period": "2013 — 2018",
-      "degree": "小学",
-      "institution": "烟台市芝罘区南通路小学"
+      "period": "2013 - 2018",
+      "degree": "Primary School",
+      "institution": "Nantong Road Primary School, Zhifu District, Yantai"
     }
   ],
   "researchInterests": [
     {
-      "title": "研究方向一",
-      "description": "用一两句话说明你对这个方向具体关注什么，以及你希望解决的问题。"
+      "title": "Large Language Models and Machine Learning",
+      "description": "I am interested in how data quality and experimental design influence the evaluation of large language models. My work on AmbiHTMLBench involves collecting and organizing data, checking its quality, and contributing to experimental code."
     },
     {
-      "title": "研究方向二",
-      "description": "这里也可以填写课程兴趣、希望探索的技术方向或跨学科主题。"
+      "title": "Algorithms and Autonomous Systems",
+      "description": "I am interested in connecting algorithm development with working software systems. My summer research training involved algorithm design, deployment, simulation testing and technical reporting in autonomous driving and automation."
     }
   ],
   "projects": [
     {
-      "period": "2026.08",
+      "period": "Aug 2026 - Present",
       "title": "AmbiHTMLBench",
-      "role": "科研训练",
-      "description": "负责数据收集、质检、整理，以及部分实验代码框架设计。",
-      "tags": ["LLM", "机器学习"],
-      "links": [
-        { "label": "项目仓库", "href": "" }
-      ]
+      "role": "Research Training",
+      "description": "Collect, quality-check and organize data, and contribute to the design of parts of the experimental code framework. The project concerns large language models and machine learning. A submission to ICLR 2027 is planned for September 25, 2026.",
+      "tags": [
+        "Large Language Models",
+        "Machine Learning",
+        "Data Quality",
+        "Experimental Frameworks"
+      ],
+      "links": []
     },
     {
-      "period": "2026.07",
-      "title": "暑期科研见习岗位",
-      "role": "科研训练",
-      "description": "负责算法设计与开发，系统部署，仿真测试，报告撰写等。",
-      "tags": ["无人驾驶", "自动化"],
-      "links": [
-        {"label": "结题报告","href": "" }
-      ]
+      "period": "Jul 2026",
+      "title": "Summer Research Placement",
+      "role": "Research Training in Autonomous Driving and Automation",
+      "description": "Worked on algorithm design and development, system deployment, simulation testing and technical report writing. This placement connected algorithm implementation with system-level experimentation.",
+      "tags": [
+        "Autonomous Driving",
+        "Automation",
+        "Algorithms",
+        "Simulation"
+      ],
+      "links": []
     }
   ],
   "honors": [
     {
-      "date": "2026.05",
-      "title": "全国大学生英语竞赛",
-      "organization": "三等奖"
+      "date": "May 2026",
+      "title": "Third Prize, National English Competition for College Students",
+      "organization": ""
     },
     {
-      "date": "2025.12",
-      "title": "上海市阳光联赛运动会",
-      "organization": "踢毽子团体一等奖"
+      "date": "Dec 2025",
+      "title": "First Prize, Team Shuttlecock Competition",
+      "organization": "Shanghai Sunshine League Sports Meet"
     }
   ],
   "skillGroups": [
     {
-      "title": "Fields",
-      "items": ["计算机科学", "人工智能", "大语言模型"]
-    },
-    {
       "title": "Programming",
-      "items": ["Python", "C++", "Linux"]
+      "items": [
+        "Python",
+        "C++"
+      ]
     },
     {
-      "title": "Language",
-      "items": ["Chinese", "English"]
+      "title": "Tools and Environment",
+      "items": [
+        "Linux"
+      ]
+    },
+    {
+      "title": "Areas of Interest",
+      "items": [
+        "Computer Science",
+        "Artificial Intelligence",
+        "Large Language Models"
+      ]
+    },
+    {
+      "title": "Languages",
+      "items": [
+        "Chinese",
+        "English"
+      ]
     }
   ],
   "footer": {
