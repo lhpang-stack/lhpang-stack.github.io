@@ -122,6 +122,8 @@ const projectContent = (data.projects || [])
         </div>
         <time>${escapeHtml(item.period)}</time>
       </div>
+      ${(item.authors || []).length ? `<p class="paper-authors">${item.authors.map((name) => name === data.profile?.name ? `<strong>${escapeHtml(name)}</strong>` : escapeHtml(name)).join(", ")}</p>` : ""}
+      ${item.submissionStatus ? `<p class="paper-status">${escapeHtml(item.submissionStatus)}</p>` : ""}
       <p>${escapeHtml(item.description)}</p>
       ${(item.tags || []).length ? `<ul class="tag-list">${item.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("")}</ul>` : ""}
       ${renderLinks(item.links || [], "project-links")}

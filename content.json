@@ -83,7 +83,7 @@
   "about": {
     "paragraphs": [
       "I am a second-year undergraduate studying Computer Science and Technology at Shanghai Jiao Tong University. My interests lie in machine learning, particularly deep learning and reinforcement learning.",
-      "I currently contribute to AmbiHTMLBench, working on data collection, quality control, and experimental software.",
+      "I am a co-author of AmbiHTMLBench, a benchmark for image-to-HTML reconstruction of heterogeneous documents, submitted to ICLR 2027 on September 26, 2026. My contributions include data collection, quality control, and experimental software.",
       "I bring enthusiasm and a careful, methodical approach to research. I am willing to invest the time and effort needed to do the work well, take responsibility for the tasks entrusted to me, and follow through with close attention to detail. I welcome opportunities to collaborate with academic labs and industry teams, and am seeking research and internship opportunities where I can contribute and learn."
     ]
   },
@@ -108,10 +108,12 @@
   "projects": [
     {
       "period": "Aug 2026 - Present",
-      "title": "AmbiHTMLBench",
-      "role": "Undergraduate Research Project",
+      "title": "AmbiHTMLBench: A Multidimensional Benchmark for Image-to-HTML Reconstruction of Heterogeneous Documents",
+      "role": "Co-author",
+      "authors": ["Boyu Niu", "Yingjie Xiong", "Shurui Li", "Linhan Pang", "Yuntong Zhang", "Han Wang", "Xuanhe Zhou", "Hao Wu", "Kai Zuo", "Xu Tang", "Fan Wu"],
+      "submissionStatus": "Submitted to ICLR 2027 on September 26, 2026.",
       "supervisor": "Xuanhe Zhou, Assistant Professor",
-      "description": "I collect and organize data, perform quality checks, and contribute to the experimental software framework for this large language model research project. The team plans to submit the work to ICLR 2027 on September 25, 2026.",
+      "description": "A multidimensional benchmark for reconstructing heterogeneous documents in HTML from images. My contributions include data collection and organization, quality checks, and the design of parts of the experimental software framework.",
       "tags": [
         "Large Language Models",
         "Machine Learning",

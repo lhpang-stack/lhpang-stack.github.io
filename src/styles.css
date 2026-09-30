@@ -271,6 +271,10 @@ time {
 
 .project-heading time { margin-top: 4px; }
 
+.project-item > .paper-authors { font-size: 14px; line-height: 1.7; }
+.paper-authors strong { color: var(--text); }
+.project-item > .paper-status { color: var(--accent); font-size: 14px; font-weight: 600; }
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
