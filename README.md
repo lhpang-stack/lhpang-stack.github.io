@@ -22,7 +22,7 @@
 | `researchInterests` | 研究兴趣 |
 | `projects` | 项目经历 |
 | `honors` | 荣誉与奖项 |
-| `skillGroups` | 技能分组 |
+| `skills` | 平行列举的技能条目 |
 | `footer` | 页尾文字 |
 
 `links` 中 Email 和电话的 `href` 分别使用 `$email`、`$phone`，它们会自动读取 `profile.email`、`profile.phone`，因此联系方式只需要修改一处。
@@ -49,8 +49,8 @@
 ## 添加个人简历 PDF
 
 1. 把 PDF 上传到 `assets`，例如 `assets/cv.pdf`。
-2. 在 `content.json` 的 `links` 中找到“个人简历”。
-3. 把它的 `href` 从空字符串改成 `assets/cv.pdf`。
+2. 在 `content.json` 的 `about` 中找到 `cv`。
+3. 把它的值改成 `assets/cv.pdf`，About Me 末尾的 CV 链接会自动更新。
 
 链接为空时不会显示，因此还没准备好的链接可以保留为空。
 

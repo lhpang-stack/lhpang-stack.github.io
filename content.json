@@ -37,8 +37,8 @@
       "href": "#academics"
     },
     {
-      "label": "Research",
-      "href": "#research"
+      "label": "Experience",
+      "href": "#experience"
     },
     {
       "label": "Service",
@@ -65,22 +65,19 @@
     {
       "label": "GitHub",
       "href": "https://github.com/lhpang-stack"
-    },
-    {
-      "label": "Resume (PDF)",
-      "href": "assets/Linhan_Pang_CV.pdf"
     }
   ],
   "sectionTitles": {
     "about": "About Me",
     "education": "Education",
     "academics": "Academic Performance",
-    "research": "Research Experience",
-    "studentWork": "Teaching and University Service",
+    "research": "Experience",
+    "studentWork": "Student Work and Service",
     "honors": "Honors and Awards",
     "skills": "Skills"
   },
   "about": {
+    "cv": "assets/Linhan_Pang_CV_20261009.pdf",
     "paragraphs": [
       "I am a second-year undergraduate studying Computer Science and Technology at Shanghai Jiao Tong University. My interests lie in machine learning, particularly deep learning and reinforcement learning.",
       "I am a co-author of AmbiHTMLBench, a benchmark for image-to-HTML reconstruction of heterogeneous documents, submitted to ICLR 2027 on September 26, 2026. My contributions include data collection, quality control, and experimental software.",
@@ -107,7 +104,7 @@
   ],
   "projects": [
     {
-      "period": "Aug 2026 - Present",
+      "period": "Apr - Sep 2026",
       "title": "AmbiHTMLBench: A Multidimensional Benchmark for Image-to-HTML Reconstruction of Heterogeneous Documents",
       "role": "Co-author",
       "authors": ["Boyu Niu", "Yingjie Xiong", "Shurui Li", "Linhan Pang", "Yuntong Zhang", "Han Wang", "Xuanhe Zhou", "Hao Wu", "Kai Zuo", "Xu Tang", "Fan Wu"],
@@ -117,9 +114,17 @@
       "tags": [
         "Large Language Models",
         "Machine Learning",
-        "Data Quality",
+        "Benchmark",
         "Research Software"
       ],
+      "links": []
+    },
+    {
+      "period": "Jul 2026",
+      "title": "Schedule Management System",
+      "role": "Independent Course Project, Computer Programming Practice",
+      "description": "Independently developed a schedule management system using Linux, Python, and C++. Earned an overall course score of 97/100, ranking 1st out of 86 students.",
+      "tags": ["Linux", "Python", "C++"],
       "links": []
     },
     {
@@ -138,6 +143,12 @@
     }
   ],
   "studentWork": [
+    {
+      "period": "Aug 2026",
+      "title": "Volunteer, 29th National Forum for Heads and Deans of University Computer Science Departments",
+      "organization": "Materials Packing Team Lead and Main Venue Support",
+      "description": "Led the materials packing team and supported operations at the main venue."
+    },
     {
       "period": "Aug 2026",
       "title": "Teaching Assistant, Python Fundamentals",
@@ -163,20 +174,11 @@
       "organization": ""
     }
   ],
-  "skillGroups": [
-    {
-      "title": "Technical Skills",
-      "items": [
-        "Python and C++: hands-on programming experience.",
-        "Linux: experience developing software projects in a Linux environment."
-      ]
-    },
-    {
-      "title": "Language Skills",
-      "items": [
-        "English: 647 on the College English Test, Band 6 (CET-6)."
-      ]
-    }
+  "skills": [
+    "Foundational programming skills in Python and C++.",
+    "Experience developing Linux command-line tools.",
+    "Information retrieval and data analysis skills.",
+    "English: CET-6 score of 647."
   ],
   "footer": {
     "note": "",

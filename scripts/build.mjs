@@ -83,7 +83,7 @@ const navigation = (data.navigation || [])
 
 const aboutContent = (data.about?.paragraphs || [])
   .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-  .join("");
+  .join("") + (safeHref(data.about?.cv) ? `<p>Check out my <a href="${safeHref(data.about.cv)}">CV</a> here!</p>` : "");
 
 const academicContent = (data.academicPerformance || [])
   .map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.value)}</p></article>`)
@@ -150,14 +150,9 @@ const studentWorkContent = (data.studentWork || [])
   </article>`)
   .join("");
 
-const skillsContent = (data.skillGroups || [])
-  .map(
-    (group) => `<article>
-      <h3>${escapeHtml(group.title)}</h3>
-      <ul class="skill-points">${(group.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    </article>`
-  )
-  .join("");
+const skillsContent = (data.skills || []).length
+  ? `<ul class="skill-points">${data.skills.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
+  : "";
 
 const titleParts = [data.profile?.name, data.profile?.englishName].filter(Boolean);
 const pageTitle = titleParts.join(" · ");
@@ -198,10 +193,10 @@ const html = `<!doctype html>
         ${section("about", sectionTitles.about || "About Me", aboutContent, "about-section")}
         ${section("education", sectionTitles.education || "教育背景", educationContent, "entries-section")}
         ${section("academics", sectionTitles.academics || "Academic Performance", academicContent ? `<div class="skills-list">${academicContent}</div>` : "")}
-        ${section("research", sectionTitles.research || "Research Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
+        ${section("experience", sectionTitles.research || "Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
         ${section("student-work", sectionTitles.studentWork || "Student Work and Campus Roles", studentWorkContent, "entries-section")}
         ${section("honors", sectionTitles.honors || "荣誉与奖项", honorContent ? `<ul class="honor-list">${honorContent}</ul>` : "")}
-        ${section("skills", sectionTitles.skills || "技能", skillsContent ? `<div class="skills-list">${skillsContent}</div>` : "")}
+        ${section("skills", sectionTitles.skills || "技能", skillsContent)}
       </article>
     </main>
 
