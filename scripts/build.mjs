@@ -1,5 +1,5 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -29,6 +29,12 @@ const safeAsset = (value = "") => {
   return /^[a-zA-Z0-9][a-zA-Z0-9_./-]*$/.test(asset) && !asset.includes("..")
     ? escapeHtml(asset)
     : "";
+};
+
+const checkLocalAsset = (path, field) => {
+  if (!path.startsWith("assets/") || !statSync(resolve(root, path), { throwIfNoEntry: false })?.isFile()) {
+    throw new Error(`${field} must point to an existing file in assets/: ${path || "(invalid path)"}`);
+  }
 };
 
 const safeColor = (value, fallback) =>
@@ -68,6 +74,7 @@ const section = (id, title, content, className = "") =>
     : "";
 
 const profilePhoto = safeAsset(data.profile?.photo);
+if (data.profile?.photo) checkLocalAsset(profilePhoto, "profile.photo");
 const photoMarkup = profilePhoto
   ? `<img class="profile-photo" src="./${profilePhoto}" alt="${escapeHtml(data.profile.photoAlt)}">`
   : `<div class="photo-placeholder" role="img" aria-label="尚未添加个人照片">
@@ -81,9 +88,11 @@ const navigation = (data.navigation || [])
   .map((item) => `<a href="${item.safe}">${escapeHtml(item.label)}</a>`)
   .join("");
 
+const cvHref = safeHref(data.about?.cv);
+if (cvHref.startsWith("./assets/")) checkLocalAsset(cvHref.slice(2), "about.cv");
 const aboutContent = (data.about?.paragraphs || [])
   .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-  .join("") + (safeHref(data.about?.cv) ? `<p>Check out my <a href="${safeHref(data.about.cv)}">CV</a> here!</p>` : "");
+  .join("") + (cvHref ? `<p>Check out my <a href="${cvHref}">CV</a> here!</p>` : "");
 
 const academicContent = (data.academicPerformance || [])
   .map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.value)}</p></article>`)
@@ -193,7 +202,7 @@ const html = `<!doctype html>
         ${section("about", sectionTitles.about || "About Me", aboutContent, "about-section")}
         ${section("education", sectionTitles.education || "教育背景", educationContent, "entries-section")}
         ${section("academics", sectionTitles.academics || "Academic Performance", academicContent ? `<div class="skills-list">${academicContent}</div>` : "")}
-        ${section("experience", sectionTitles.research || "Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
+        ${section("experience", sectionTitles.experience || "Experience", `${projectContent}${researchContent ? `<h3 class="research-subheading">Research Interests</h3><div class="interest-list">${researchContent}</div>` : ""}`, "projects-section")}
         ${section("student-work", sectionTitles.studentWork || "Student Work and Campus Roles", studentWorkContent, "entries-section")}
         ${section("honors", sectionTitles.honors || "荣誉与奖项", honorContent ? `<ul class="honor-list">${honorContent}</ul>` : "")}
         ${section("skills", sectionTitles.skills || "技能", skillsContent)}

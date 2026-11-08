@@ -1,6 +1,6 @@
 # 独立个人学术主页
 
-这是一个完全静态、自动发布的单页个人主页。它采用简洁的学术主页布局：左侧个人资料，右侧教育、研究兴趣、项目、荣誉和技能。
+[在线主页](https://lhpang-stack.github.io/)是一个完全静态的英文学术主页，由 GitHub Pages 自动发布。左侧为个人资料，右侧为教育、成绩、项目、学生工作、荣誉与技能。
 
 成品不调用 OpenAI、ChatGPT、外部字体、远程脚本、数据库或第三方图片服务。
 
@@ -14,13 +14,14 @@
 | `theme` | 主色、文字颜色、分隔线、内容宽度和侧栏宽度 |
 | `profile` | 姓名、学生身份、学校、城市、邮箱和照片 |
 | `navigation` | 顶部导航的名称、顺序和跳转位置 |
-| `links` | Email、GitHub、个人简历等链接 |
+| `links` | 侧栏邮箱、电话和 GitHub 链接 |
 | `sectionTitles` | 各栏目的显示名称 |
-| `about` | 页面最上方的个人介绍 |
-| `news` | 近期动态 |
+| `about` | 个人介绍及末尾的 `about.cv` 简历链接 |
 | `education` | 教育背景 |
+| `academicPerformance` | 核心学积分、GPA 等成绩 |
 | `researchInterests` | 研究兴趣 |
 | `projects` | 项目经历 |
+| `studentWork` | 学生工作与服务 |
 | `honors` | 荣誉与奖项 |
 | `skills` | 平行列举的技能条目 |
 | `footer` | 页尾文字 |
@@ -34,8 +35,14 @@
 - 增加一项：复制同一列表中的一个完整 `{ ... }` 对象，注意对象之间保留英文逗号。
 - 删除一项：删除对应的整个 `{ ... }` 对象。
 - 调整顺序：在列表中上下移动完整对象。
-- 隐藏栏目：把对应列表改成空数组 `[]`，页面会自动隐藏该栏目。
+- 隐藏列表：把对应列表改成空数组 `[]`，并检查 `navigation` 中是否仍有指向空栏目的跳转链接。
 - JSON 必须使用英文双引号 `"`、英文冒号 `:` 和英文逗号 `,`。
+
+## 添加项目经历
+
+在 `projects` 数组顶部新增最近的项目。填写 `period`（时间）、`title`（标题）、`role`（角色或所属团队）与 `description`（个人工作和成果）；按需添加 `supervisor`、`tags` 及 `links`。论文项目可额外填写 `authors` 和 `submissionStatus`。
+
+`links` 中的每项使用 `{ "label": "Project website", "href": "https://example.com/" }` 格式。主页是公开的，请只添加访客可以访问的资料。
 
 ## 替换照片
 
@@ -81,6 +88,8 @@
 npm run build
 npx serve dist
 ```
+
+构建从 `content.json` 读取内容，使用 `scripts/build.mjs` 和 `src/styles.css` 生成 `dist/`。本地照片和简历路径缺少对应文件时，构建会报错。`dist/` 是生成产物，无需手动修改或提交。
 
 ## 连接自有域名
 

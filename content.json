@@ -71,7 +71,7 @@
     "about": "About Me",
     "education": "Education",
     "academics": "Academic Performance",
-    "research": "Experience",
+    "experience": "Experience",
     "studentWork": "Student Work and Service",
     "honors": "Honors and Awards",
     "skills": "Skills"
@@ -103,6 +103,15 @@
     }
   ],
   "projects": [
+    {
+      "period": "Oct 19 - Nov 6, 2026",
+      "title": "Real-Robot Manipulation Practicum",
+      "role": "Machine Vision and Intelligence Group (MVIG), Shanghai Jiao Tong University",
+      "supervisor": "Cewu Lu, Professor",
+      "description": "I independently selected a manipulation task for an I²RT gripper, designed the experimental setup, collected demonstrations, trained the policies, and deployed them on the robot. I completed the task on physical hardware with each of four policies: ACT, Diffusion Policy (DP), π₀, and π₀.₅.",
+      "tags": ["Robot Learning", "Imitation Learning", "Robotic Manipulation"],
+      "links": [{ "label": "MVIG Lab", "href": "https://www.mvig.org/" }]
+    },
     {
       "period": "Apr - Sep 2026",
       "title": "AmbiHTMLBench: A Multidimensional Benchmark for Image-to-HTML Reconstruction of Heterogeneous Documents",
